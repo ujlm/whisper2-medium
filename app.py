@@ -21,7 +21,7 @@ def inference(model_inputs:dict) -> dict:
         return {'message': "No prompt provided"}
     
     # Run the model
-    audio = whisper.load_audio("https://delyrium.s3.eu-west-3.amazonaws.com/hond1.mp3")
+    audio = whisper.load_audio(prompt["url"])
     result = whisper.transcribe(model, audio)
 
     # Return the results as a dictionary
