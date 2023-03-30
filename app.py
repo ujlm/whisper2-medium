@@ -28,12 +28,12 @@ def inference(model_inputs: dict) -> dict:
     global model
 
     # Parse out your arguments
-    prompt = model_inputs.get('prompt', None)
-    if prompt == None:
-        return {'message': "No prompt provided"}
+    url = model_inputs.get('url', None)
+    if url == None:
+        return {'message': "No url provided"}
 
     # Run the model
-    audio = whisper.load_audio(prompt["url"])
+    audio = whisper.load_audio(url)
     result = whisper.transcribe(model, audio)
 
     # Callback
